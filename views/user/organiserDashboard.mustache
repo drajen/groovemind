@@ -71,12 +71,14 @@
       <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title">{{name}}</h4>
-          <p class="card-text">{{description}}</p>
-          <p class="card-text"><strong>£{{price}}</strong></p>
+          <p class="card-text"><strong>Description:</strong> {{description}}</p>
+          <p class="card-text"><strong>Duration:</strong> {{duration}}</p>
+          <p class="card-text"><strong>Location:</strong> {{location}}</p>
+          <p class="card-text"><strong>Price:</strong> £{{price}}</p>
 
           {{#classes}}
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span><strong>{{date}} at {{time}}</strong> – {{classDescription}}</span>
+              <span><p><strong>Class Date/Time:</strong> {{date}} at {{time}} – {{classDescription}}</span>
               <div>
                 <a href="/courses/{{_id}}/classes/{{index}}/edit" class="btn btn-sm btn-outline-info">
                   <i class="fas fa-edit"></i> Edit Class

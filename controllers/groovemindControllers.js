@@ -87,11 +87,8 @@ exports.add_course = function(req, res) {
 
     db.addCourse(course)
       .then((newDoc) => {
-        res.status(201).json({
-          message: 'Course added successfully',
-          course: newDoc
-        });
-      })
+          res.redirect('/organiser/dashboard');
+        })
       .catch((err) => {
         console.error("Error adding course:", err); // Debugging line
         res.status(500).json({ error: 'Failed to add course' });
@@ -107,7 +104,7 @@ exports.update_course = function(req, res) {
   db.updateCourse(courseId, updatedData)
     .then((numReplaced) => {
       if (numReplaced > 0) {
-        res.json({ message: 'Course updated successfully' });
+        res.redirect('/organiser/dashboard');
       } else {
         res.status(404).json({ message: 'Course not found' });
       }
@@ -125,7 +122,7 @@ exports.delete_course = function(req, res) {
   db.deleteCourse(courseId)
     .then((numRemoved) => {
       if (numRemoved > 0) {
-        res.json({ message: 'Course deleted successfully' });
+        res.redirect('/organiser/dashboard');
       } else {
         res.status(404).json({ message: 'Course not found' });
       }
@@ -329,41 +326,45 @@ exports.add_organiser = function (req, res) {
   const password = req.body.password;
 
   if (!usernameToAdd || !password) {
-    return res.status(400).json({ error: 'Username and password are required' });
+    console.log('Missing username or password');
+    return res.redirect('/organisers/add');
   }
 
   userDao.lookup(usernameToAdd, function (err, user) {
     if (user) {
       console.log(`Organiser already exists: ${usernameToAdd}`);
-      res.status(409).json({ error: 'Organiser already exists' });
+      return res.redirect('/organisers/add?error=exists');
     } else {
       userDao.create(usernameToAdd, password);
       console.log(`Organiser '${usernameToAdd}' added successfully`);
-      res.status(201).json({ message: `Organiser '${usernameToAdd}' added successfully` });
+      return res.redirect('/organiser/dashboard')
     }
   });
 };
 
 // Delete an organiser
 // This function is called when an organiser is deleted
+// Delete an organiser
 exports.delete_organiser = function(req, res) {
   const usernameToDelete = req.body.username;
 
   if (!usernameToDelete) {
-    return res.status(400).json({ error: 'Username is required' });
+    console.log('No username provided');
+    return res.redirect('/organisers/delete'); // Go back to form
   }
 
   userDao.delete(usernameToDelete)
     .then((numRemoved) => {
       if (numRemoved > 0) {
-        res.json({ message: `User '${usernameToDelete}' deleted successfully.` });
+        console.log(`Organiser '${usernameToDelete}' deleted`);
       } else {
-        res.status(404).json({ error: 'User not found' });
+        console.log(`Organiser '${usernameToDelete}' not found`);
       }
+      res.redirect('/organiser/dashboard');
     })
     .catch((err) => {
       console.error('Error deleting user:', err);
-      res.status(500).json({ error: 'Internal server error' });
+      res.redirect('/organiser/dashboard');
     });
 };
 
@@ -376,7 +377,7 @@ exports.add_class_to_course = function (req, res) {
   db.addClassToCourse(courseId, classData)
     .then((numReplaced) => {
       if (numReplaced > 0) {
-        res.status(200).json({ message: "Class added successfully" });
+        res.redirect('/organiser/dashboard');
       } else {
         res.status(404).json({ message: "Course not found" });
       }
@@ -395,7 +396,7 @@ exports.delete_class = function(req, res) {
   db.deleteClassFromCourse(courseId, classIndex)
     .then((numReplaced) => {
       if (numReplaced > 0) {
-        res.status(200).json({ message: "Class deleted successfully" });
+        res.redirect('/organiser/dashboard');
       } else {
         res.status(404).json({ message: 'Course not found or no changes made' });
       }
@@ -416,7 +417,7 @@ exports.update_class = function(req, res) {
   db.updateClassInCourse(courseId, classIndex, updatedClass)
     .then((numReplaced) => {
       if (numReplaced > 0) {
-        res.status(200).json({ message: "Class updated successfully" });
+        res.redirect('/organiser/dashboard');
       } else {
         res.status(404).json({ message: 'Course not found or no changes made' });
       }
@@ -485,7 +486,7 @@ exports.remove_user_from_course = function(req, res) {
   db.removeUserFromCourse(courseId, email)
     .then((numReplaced) => {
       if (numReplaced > 0) {
-        res.status(200).json({ message: 'User removed from course' });
+        res.redirect(`/courses/${courseId}/classlist/view`);
       } else {
         res.status(404).json({ message: 'User or course not found' });
       }

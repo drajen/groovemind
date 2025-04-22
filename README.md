@@ -85,7 +85,7 @@ Test results are documented in `GrooveMind_API_Endpoint_Test_S2159716.docx`, sub
 
 1. **Clone the repository**
    open Terminal
-   git clone <git-url>
+   git clone https://github.com/drajen/groovemind.git
    cd GrooveMind
 
 2. **Install dependencies**
@@ -101,7 +101,8 @@ Test results are documented in `GrooveMind_API_Endpoint_Test_S2159716.docx`, sub
    http://localhost:3000
 
 
-## Live URL for Demo 
+## Live URL for Demo on Render
+https://groovemind.onrender.com/
 
 ## Author
 - Dharrish Rajendram
