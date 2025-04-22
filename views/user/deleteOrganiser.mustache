@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> header }}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: #914949;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="form-container">
+      <h1>{{title}}</h1>
+      {{#errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/errors}}
+      <form action="/organisers/delete" method="POST">
+        <div class="form-group">
+          <label for="username">Username to Delete:</label>
+          <input class="form-control" type="text" id="username" name="username" required>
+        </div>
+        <button type="submit" class="btn btn-danger btn-block mt-3">Delete Organiser</button>
+      </form>
+    </div>
+  </main>
+  {{> footer }}
+</body>
+</html>

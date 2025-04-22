@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    .confirmation-box {
+      max-width: 600px;
+      background-color: #fff;
+      padding: 30px;
+      margin: 80px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #1985A1;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #EDB6A3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="confirmation-box">
+      <h1 class="mb-3">{{title}}</h1>
+      <p class="lead">Thank you for booking! We look forward to seeing you in class.</p>
+      <a href="/courses" class="btn btn-primary mt-4">View More Courses</a>
+    </div>
+  </main>
+
+  {{>footer}}
+</body>
+</html>

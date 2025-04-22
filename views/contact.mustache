@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #914949;
+    }
+
+    .card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .location-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 260px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      transition: 0.3s ease;
+    }
+
+    .location-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .location-card h4 {
+      color: #1985A1;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .location-card p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-box {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+
+    .contact-box i {
+      color: #914949;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .card-deck {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .location-card {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>{{title}}</h1>
+    <h2 class="mt-4">Our Locations</h2>
+
+    <div class="card-deck">
+      <div class="location-card">
+        <h4><i class="fas fa-map-marker-alt"></i> GrooveMind Partick</h4>
+        <p>12 Dumbarton Road</p>
+        <p>Glasgow G11 1SSE</p>
+        <p><i class="fas fa-phone"></i> 0141 1111 1111</p>
+      </div>
+
+      <div class="location-card">
+        <h4><i class="fas fa-map-marker-alt"></i> GrooveMind Garnethill</h4>
+        <p>125 Roses Street</p>
+        <p>Glasgow G1 1EEE</p>
+        <p><i class="fas fa-phone"></i> 0141 2222 2222</p>
+      </div>
+
+      <div class="location-card">
+        <h4><i class="fas fa-map-marker-alt"></i> GrooveMind Shawlands</h4>
+        <p>159 Vicar Street</p>
+        <p>Glasgow G52 1YUU</p>
+        <p><i class="fas fa-phone"></i> 0141 2222 3333</p>
+      </div>
+
+      <div class="location-card">
+        <h4><i class="fas fa-map-marker-alt"></i> GrooveMind Dennistoun</h4>
+        <p>89 Hyde Street</p>
+        <p>Glasgow G33 8YUO</p>
+        <p><i class="fas fa-phone"></i> 0141 4444 3333</p>
+      </div>
+    </div>
+
+    <section class="contact-box">
+      <h3 class="mt-4"><i class="fas fa-envelope"></i> Get in Touch</h3>
+      <p>Email: <a href="mailto:groovemind.striving247@passinbox.com">groovemind.striving247@passinbox.com</a></p>
+    </section>
+  </main>
+
+  {{>footer}}
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+    .hero-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/images/dance.jpg") no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 100px 0;
+    }
+
+    main-bg, header, footer {
+      background-color: #EDB6A3;
+    }
+
+    footer {
+      color: #F8E9E9;
+    }
+
+    .btn-primary {
+      background-color: #1985A1;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #EDB6A3;
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <div class="hero-bg text-white text-center">
+    <div class="container">
+      <h1 class="display-4 font-weight-bold">GrooveMind Dance Collective</h1>
+      <p class="lead mt-3">Emotion is Created by Motion</p>
+      <hr class="my-4" />
+      <p class="lead mt-3">
+        GrooveMind offers accessible dance classes for all fitness levels. Whether you're a beginner or returning dancer, we’ve got something for you.
+      </p>
+      <p class="lead mt-3">
+        Our classes are designed to be fun and energising, with a focus on building confidence and community. We believe that everyone can dance, and we’re here to help you find your groove.
+      Choose a course that suits your goals and energy. Join our growing community. </p>
+    </div>
+  </div>
+
+  <!-- Featured Courses -->
+  <main class="main-bg container mt-5 py-5">
+    <h2 class="text-center mb-4">Featured Dance Courses</h2>
+    <div class="row text-center">
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="/images/salsa.jpg" class="card-img-top" alt="Beginner Salsa" style="object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Beginner Salsa</h5>
+            <p class="card-text">A 6-week introduction to salsa, focusing on rhythm, steps and connection. Perfect for total beginners!</p>
+            <a href="/courses" class="btn btn-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="/images/hiphop.jpg" class="card-img-top" alt="Beginner Grooves & Moves" style="object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Beginner Grooves & Moves</h5>
+            <p class="card-text">Want to move to your favourite Hip Hop beats? Learn body rolls, isolations, footwork and finish with a full choreography.</p>
+            <a href="/courses" class="btn btn-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="/images/reggaeton.jpg" class="card-img-top" alt="Reggaeton Workshop" style="object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Reggaeton Workshop</h5>
+            <p class="card-text">Weekend workshop for all levels. Two energising morning sessions combining Latin flavour and urban attitude.</p>
+            <a href="/courses" class="btn btn-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  {{>footer}}
+</body>
+</html>

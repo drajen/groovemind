@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> header }}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      text-align: center;
+      color: #914949;
+    }
+    .btn-primary {
+      background-color: #1985A1;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #EDB6A3;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="form-container">
+      <h2>{{title}}</h2>
+      <form method="POST" action="/courses/{{course._id}}?_method=PUT">
+        <div class="form-group">
+          <label for="name">Course Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{course.name}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Course Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3" required>{{course.description}}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input type="text" class="form-control" id="duration" name="duration" value="{{course.duration}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select class="form-control" id="location" name="location" required>
+            <option value="">Select Location</option>
+            <option value="GrooveMind Partick">GrooveMind Partick</option>
+            <option value="GrooveMind Garnethill">GrooveMind Garnethill</option>
+            <option value="GrooveMind Shawlands">GrooveMind Shawlands</option>
+            <option value="GrooveMind Dennistoun">GrooveMind Dennistoun</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price (£)</label>
+          <input type="number" class="form-control" id="price" name="price" value="{{course.price}}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-3">Update Course</button>
+      </form>
+    </div>
+  </main>
+  {{> footer }}
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+    }
+    
+    .card-title {
+      color: #914949;
+    }
+
+    .btn-outline-danger {
+      border-color: #914949;
+      color: #914949;
+    }
+
+    .btn-outline-danger:hover {
+      background-color: #914949;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main class="container py-5">
+    <h1 class="text-center mb-4">{{title}}</h1>
+
+    {{#classList}}
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{firstName}} {{lastName}}</h5>
+          <p class="card-text mb-1"><strong>Email:</strong> {{email}}</p>
+          <p class="card-text"><strong>Phone:</strong> {{phone}}</p>
+          <form method="POST" action="/courses/{{courseId}}/bookings/remove" style="display:inline;">
+            <input type="hidden" name="email" value="{{email}}">
+            <button type="submit" class="btn btn-sm btn-outline-danger mt-2">
+              <i class="fas fa-user-minus"></i> Remove Participant
+            </button>
+          </form>
+        </div>
+      </div>
+    {{/classList}}
+
+    {{^classList}}
+      <div class="alert alert-info text-center">No attendees have booked this course yet.</div>
+    {{/classList}}
+  </main>
+
+  {{>footer}}
+</body>
+</html>

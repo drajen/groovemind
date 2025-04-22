@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    .form-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: #914949;
+    }
+
+    .btn-primary {
+      background-color: #1985A1;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #EDB6A3;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>{{title}}</h1>
+    <form action="/courses" method="POST">
+      <div class="form-group">
+        <label for="name">Course Name</label>
+        <input type="text" class="form-control" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Course Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" id="duration" name="duration" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <select class="form-control" id="location" name="location" required>
+          <option value="">Select Location</option>
+          <option value="GrooveMind Partick">GrooveMind Partick</option>
+          <option value="GrooveMind Garnethill">GrooveMind Garnethill</option>
+          <option value="GrooveMind Shawlands">GrooveMind Shawlands</option>
+          <option value="GrooveMind Dennistoun">GrooveMind Dennistoun</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price (£)</label>
+        <input type="number" class="form-control" id="price" name="price" min="0" required>
+      </div>
+
+      <hr>
+      <h5>Add Class 1</h5>
+      <div class="form-group">
+        <label for="class1-date">Date</label>
+        <input type="date" class="form-control" id="class1-date" name="classes[0][date]" required>
+      </div>
+      <div class="form-group">
+        <label for="class1-time">Time</label>
+        <input type="time" class="form-control" id="class1-time" name="classes[0][time]" required>
+      </div>
+      <div class="form-group">
+        <label for="class1-desc">Description</label>
+        <input type="text" class="form-control" id="class1-desc" name="classes[0][classDescription]" required>
+      </div>
+
+      <hr>
+      <h5>Add Class 2</h5>
+      <div class="form-group">
+        <label for="class2-date">Date</label>
+        <input type="date" class="form-control" id="class2-date" name="classes[1][date]">
+      </div>
+      <div class="form-group">
+        <label for="class2-time">Time</label>
+        <input type="time" class="form-control" id="class2-time" name="classes[1][time]">
+      </div>
+      <div class="form-group">
+        <label for="class2-desc">Description</label>
+        <input type="text" class="form-control" id="class2-desc" name="classes[1][classDescription]">
+      </div>
+
+      <hr>
+      <h5>Add Class 3</h5>
+      <div class="form-group">
+        <label for="class2-date">Date</label>
+        <input type="date" class="form-control" id="class2-date" name="classes[2][date]">
+      </div>
+      <div class="form-group">
+        <label for="class2-time">Time</label>
+        <input type="time" class="form-control" id="class2-time" name="classes[2][time]">
+      </div>
+      <div class="form-group">
+        <label for="class2-desc">Description</label>
+        <input type="text" class="form-control" id="class2-desc" name="classes[2][classDescription]">
+      </div>
+
+      <hr>
+      <h5>Add Class 4</h5>
+      <div class="form-group">
+        <label for="class2-date">Date</label>
+        <input type="date" class="form-control" id="class2-date" name="classes[3][date]">
+      </div>
+      <div class="form-group">
+        <label for="class2-time">Time</label>
+        <input type="time" class="form-control" id="class2-time" name="classes[3][time]">
+      </div>
+      <div class="form-group">
+        <label for="class2-desc">Description</label>
+        <input type="text" class="form-control" id="class2-desc" name="classes[3][classDescription]">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3">Add Course</button>
+    </form>
+  </div>
+
+  {{>footer}}
+</body>
+</html>

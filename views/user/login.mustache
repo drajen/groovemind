@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .form-container {
+      max-width: 500px;
+      background: #fff;
+      padding: 30px;
+      margin: 50px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #914949;
+    }
+
+    .btn-primary {
+      background-color: #1985A1;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #EDB6A3;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="form-container">
+      <h1>{{title}}</h1>
+      <h2 class="mb-4">Access your Organiser Dashboard</h2>
+
+      <form method="POST" action="/login">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" name="pass" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-3">Sign In</button>
+      </form>
+    </div>
+  </main>
+
+  {{>footer}}
+</body>
+</html>

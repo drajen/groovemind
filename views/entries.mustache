@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{>header}}
+    <style>
+      .course-card {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .course-card h3 {
+        color: #914949;
+      }
+
+      .btn-outline-primary {
+        border-color: #1985A1;
+        color: #1985A1;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: #1985A1;
+        color: white;
+      }
+
+      .btn-outline-secondary {
+        border-color: #6b4f4f;
+        color: #6b4f4f;
+      }
+
+      .btn-outline-secondary:hover {
+        background-color: #6b4f4f;
+        color: white;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="main-bg container py-5">
+      <h2 class="text-center mb-4">Our Dance Courses</h2>
+
+      {{#entries}}
+        <div class="course-card">
+          <h3>{{name}}</h3>
+          <p><strong>Description:</strong> {{description}}</p>
+          <p><strong>Duration:</strong> {{duration}}</p>
+          <p><strong>Location:</strong> {{location}}</p>
+          <p><strong>Price:</strong> £{{price}}</p>
+
+          {{#classes}}
+            <div>
+              <p><strong>Class Date/Time:</strong> {{date}} at {{time}} – {{classDescription}}</p>
+            </div>
+          {{/classes}}
+
+          <div class="mt-3">
+            <a href="/courses/{{_id}}/book" class="btn btn-outline-primary btn-sm">Book This Course</a>
+
+            {{#organiser}}
+              <a href="/courses/{{_id}}/classlist/view" class="btn btn-outline-secondary btn-sm ml-2">View Class List</a>
+            {{/organiser}}
+          </div>
+        </div>
+      {{/entries}}
+
+      {{^entries}}
+        <div class="text-center">
+          <p>No dance courses available at the moment.</p>
+        </div>
+      {{/entries}}
+    </main>
+
+    {{>footer}}
+  </body>
+</html>

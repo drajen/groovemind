@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #F8E9E9;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .about-section {
+      background-color: #fff;
+      padding: 60px 30px;
+      margin: 40px auto;
+      border-radius: 12px;
+      max-width: 900px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      color: #914949;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .about-paragraph {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <div class="about-section">
+      <h1>{{title}}</h1>
+
+      <div class="about-paragraph lead">
+        GrooveMind was born to create a safe, inclusive space where movement meets wellbeing.
+        We believe everyone should feel confident dancing — no matter your shape, background, or experience.
+      </div>
+
+      <div class="about-paragraph lead">
+        Our experienced instructors lead courses and workshops in Salsa, Bachata, Hip Hop, and more.
+        Whether you're stepping onto the dance floor for the first time or picking up where you left off — you're welcome here.
+      </div>
+
+      <div class="about-paragraph lead">
+        Based in Glasgow with classes across <strong>Partick</strong>, <strong>Garnethill</strong>, <strong>Shawlands</strong>, and <strong>Dennistoun</strong> — we’re building more than a dance community, we’re building <strong>connection, joy, and confidence through movement</strong>.
+      </div>
+
+      <div class="about-paragraph lead">
+        GrooveMind is more than just steps and rhythms — it’s about self-expression, friendship, and finding joy in your body’s movement.
+        Come join us and groove your way to better health and happiness.
+      </div>
+    </div>
+  </main>
+
+  {{>footer}}
+</body>
+</html>
